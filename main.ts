@@ -21,11 +21,11 @@ if (!isDocker && !existsSync(baseFolder)) {
 }
 
 if (useGuidFolder) {
-    folderName = `${Guid.create().toString()}`;
-    folderPath = `${baseFolder}/${folderPath}`;
+    folderName = Guid.create().toString();
+    folderPath = `${baseFolder}/${folderName}`;
 } else {
     folderName = 'generated';
-    folderPath = `${baseFolder}/${folderPath}`;
+    folderPath = `${baseFolder}/${folderName}`;
     if (existsSync(folderPath)) {
         // @ts-ignore
         rmdirSync(folderPath, { recursive: true, force: true });
