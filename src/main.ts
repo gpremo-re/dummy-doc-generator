@@ -9,7 +9,7 @@ export const main = async (baseFolder = 'docs') => {
     let folderName = '';
     let folderPath = '';
 
-    if (!env.isDocker && !existsSync(baseFolder)) {
+    if (!existsSync(baseFolder)) {
         mkdirSync(baseFolder);
     }
 
