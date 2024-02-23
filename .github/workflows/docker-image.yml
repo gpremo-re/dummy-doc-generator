@@ -36,3 +36,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           
+      - name: Update Repo description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERUSER }}
+          password: ${{ secrets.DOCKERACCESSTOKEN }}
+          repository: ${{ secrets.DOCKERUSER }}/lorem-ipsum-document-generator
