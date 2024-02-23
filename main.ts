@@ -9,6 +9,7 @@ const paragraphs = +process.env['PARAGRAPHS'];
 const useGuidFolder = JSON.parse(process.env['USE_GUID_FOLDER']) as boolean;
 const useGuidDocNames = JSON.parse(process.env['USE_GUID_DOC_NAMES']) as boolean;
 const docPrefix = process.env['DOC_PREFIX'];
+let ext = process.env['DOC_EXTENSION'] || 'txt';
 
 let folderName = 'docs';
 
@@ -36,9 +37,9 @@ const loremIpsum = new LoremIpsum({
 for (let i = 0; i < docCount; i++) {
     let fileName: string;
     if (useGuidDocNames) {
-        fileName = `${folderName}/${docPrefix}${Guid.create().toString()}`;
+        fileName = `${folderName}/${docPrefix}${Guid.create().toString()}.${ext}`;
     } else {
-        fileName = `${folderName}/${docPrefix}${i + 1}`;
+        fileName = `${folderName}/${docPrefix}${i + 1}.${ext}`;
     }
 
     writeFileSync(fileName, loremIpsum.generateParagraphs(paragraphs));
