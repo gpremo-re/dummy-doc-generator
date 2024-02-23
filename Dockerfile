@@ -1,5 +1,5 @@
 FROM oven/bun:1
-WORKDIR /dummy_doc_generator
+WORKDIR /generator
 ADD bun-package.json package.json
 RUN bun install
 COPY src ./src

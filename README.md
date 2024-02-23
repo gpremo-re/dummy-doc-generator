@@ -12,12 +12,12 @@ Can spit out docs with GUIDS or numbered
 ## Usage (Docker CLI):
 
 ```
-docker run --rm -v $(pwd)/docs:/dummy_doc_generator/docs garretpremo/lorem-ipsum-document-generator
+docker run --rm -v $(pwd)/docs:/generator/docs garretpremo/lorem-ipsum-document-generator:latest
 ```
 
 On Windows powershell
 ```
-docker run --rm -v ${pwd}/docs:/dummy_doc_generator/docs garretpremo/lorem-ipsum-document-generator:latest
+docker run --rm -v ${pwd}/docs:/generator/docs garretpremo/lorem-ipsum-document-generator:latest
 ```
 
 Documents will be outputted in the `docs` folder in the project root.
@@ -26,8 +26,8 @@ Documents will be outputted in the `docs` folder in the project root.
 (NOTE the below are all DEFAULT parameters. Configure them however you like.)
 
 ```
-docker run --rm -d \
-    -v ./docs:/dummy_doc_generator/docs
+docker run --rm \
+    -v $(pwd)/docs:/generator/docs
     --name=lorem-ipsum-document-generator \
     -e DOC_COUNT=100 \
     -e SENTENTCE_PER_PARAGRAPH=5 \

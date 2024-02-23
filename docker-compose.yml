@@ -2,4 +2,4 @@ services:
   main:
     build: .
     volumes:
-      - ./docs:/dummy_doc_generator/docs
+      - ./docs:/generator/docs
