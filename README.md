@@ -50,7 +50,7 @@ docker compose run --rm --build main
 
 ## Configuring Output
 
-Copy and past `.env.template`
+Modify the `.env` file
 
 Change values as desired
 
