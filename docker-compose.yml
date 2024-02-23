@@ -1,0 +1,12 @@
+services:
+  main:
+    build: .
+    environment:
+      DOC_COUNT: 100
+      SENTENTCE_PER_PARAGRAPH: 5
+      WORDS_PER_SENTENCE: 20
+      PARAGRAPHS: 10
+      USE_GUID_FOLDER: true
+      USE_GUID_DOC_NAMES: true
+    volumes:
+      - ./docs:/dummy_doc_generator/docs
