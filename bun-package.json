@@ -4,5 +4,9 @@
   "dependencies": {
     "lorem-ipsum": "^2.0.8",
     "guid-typescript": "^1.0.9"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "~5.3.2"
   }
 }
