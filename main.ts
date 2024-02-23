@@ -12,6 +12,10 @@ const docPrefix = process.env['DOC_PREFIX'];
 
 let folderName = 'docs';
 
+if (!existsSync(folderName)) {
+    mkdirSync(folderName);
+}
+
 if (useGuidFolder) {
     folderName += `/${Guid.create().toString()}`;
 } else {

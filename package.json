@@ -4,6 +4,9 @@
   "description": "",
   "main": "main.ts",
   "scripts": {
+    "postinstall": "node -e \"require('fs').cpSync('.env.template', '.env');\"",
+    "prestart": "tsc main.ts",
+    "start": "node --env-file=.env main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Garret Premo <gpremo@rationalenterprise.com",
@@ -15,6 +18,7 @@
   "devDependencies": {
     "@types/node": "20.9.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.3.2"
+    "typescript": "~5.3.2",
+    "copyfiles": "^2.4.1"
   }
 }

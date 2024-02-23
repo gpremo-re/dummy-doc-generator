@@ -55,3 +55,15 @@ Copy and past `.env.template`
 Change values as desired
 
 Run the above command
+
+
+### Running with node (if ur a scrub and don't have docker)
+
+```
+git clone https://github.com/gpremo-re/dummy-doc-generator.git
+cd dummy-doc-generator
+npm install
+npm run start
+```
+
+Modify the `.env` file to change results
