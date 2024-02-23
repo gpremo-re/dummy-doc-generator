@@ -9,11 +9,12 @@ const paragraphs = +process.env['PARAGRAPHS'];
 const useGuidFolder = JSON.parse(process.env['USE_GUID_FOLDER']) as boolean;
 const useGuidDocNames = JSON.parse(process.env['USE_GUID_DOC_NAMES']) as boolean;
 const docPrefix = process.env['DOC_PREFIX'];
-let ext = process.env['DOC_EXTENSION'] || 'txt';
+const ext = process.env['DOC_EXTENSION'] || 'txt';
+const isDocker = process.env['DOCKER'] === 'true';
 
 let folderName = 'docs';
 
-if (!existsSync(folderName)) {
+if (!isDocker && !existsSync(folderName)) {
     mkdirSync(folderName);
 }
 
@@ -34,6 +35,7 @@ const loremIpsum = new LoremIpsum({
     wordsPerSentence: { max: words, min: words }
 });
 
+console.log(`Generating ${ docCount } documents...`);
 for (let i = 0; i < docCount; i++) {
     let fileName: string;
     if (useGuidDocNames) {
@@ -44,3 +46,4 @@ for (let i = 0; i < docCount; i++) {
 
     writeFileSync(fileName, loremIpsum.generateParagraphs(paragraphs));
 }
+console.log(`Done!\n${ docCount } documents created in ${ folderName }`);
