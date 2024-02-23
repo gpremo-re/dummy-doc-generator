@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   push_to_registry:
@@ -36,9 +34,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           
-      - name: Update Repo description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERUSER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ secrets.DOCKERUSER }}/lorem-ipsum-document-generator
+      # - name: Update Repo description
+      #   uses: peter-evans/dockerhub-description@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERUSER }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      #     repository: ${{ secrets.DOCKERUSER }}/lorem-ipsum-document-generator
