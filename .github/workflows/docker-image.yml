@@ -40,5 +40,5 @@ jobs:
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERUSER }}
-          password: ${{ secrets.DOCKERACCESSTOKEN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ secrets.DOCKERUSER }}/lorem-ipsum-document-generator
