@@ -26,6 +26,7 @@ docker run --rm -d \
     -e USE_GUID_FOLDER=true \
     -e USE_GUID_DOC_NAMES=true \
     -e DOC_PREFIX=generated-doc- \
+    -e DOC_EXTENSION=txt \
     garretpremo/lorem-ipsum-document-generator
 ```
 
@@ -40,6 +41,7 @@ docker run --rm -d \
 | USE_GUID_FOLDER | True: use a guid name for the folder containing generated docs                                         |
 | USE_GUID_DOC_NAMES | True: use a guid for each doc name<br/> False: use a fixed name and indexed number (index starts at 1) |
 | DOC_PREFIX | The prefix of each document name (applies to guid and non guid docs)                                   |
+| DOC_EXTENSION | extension (default txt)                                                                                |
 
 
 ## Using from the [repository](https://github.com/gpremo-re/dummy-doc-generator/tree/main):
