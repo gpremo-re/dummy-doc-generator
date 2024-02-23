@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "node -e \"require('fs').cpSync('.env.template', '.env');\"",
     "prestart": "tsc",
-    "start": "node --env-file=.env src/main.js",
+    "start": "node --env-file=.env dist/main.js",
     "test": "jest"
   },
   "author": "Garret Premo <gpremo@rationalenterprise.com",
