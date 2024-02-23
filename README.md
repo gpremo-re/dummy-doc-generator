@@ -8,7 +8,7 @@ Can spit out docs with GUIDS or numbered
 ## Usage (Docker CLI):
 
 ```
-docker run --rm -d garretpremo/lorem-ipsum-document-generator
+docker run --rm -d -v ./docs:/dummy_doc_generator/docs garretpremo/lorem-ipsum-document-generator
 ```
 
 Documents will be outputted in the `docs` folder in the project root.
@@ -18,6 +18,7 @@ Documents will be outputted in the `docs` folder in the project root.
 
 ```
 docker run --rm -d \
+    -v ./docs:/dummy_doc_generator/docs
     --name=lorem-ipsum-document-generator \
     -e DOC_COUNT=100 \
     -e SENTENTCE_PER_PARAGRAPH=5 \
