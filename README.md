@@ -5,6 +5,10 @@ Can configure number of docs, number of words, number of sentences, number of pa
 
 Can spit out docs with GUIDS or numbered
 
+### SUPPORTED FORMATS: 
+- txt
+- pdf
+
 ## Usage (Docker CLI):
 
 ```
