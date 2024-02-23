@@ -3,3 +3,5 @@ node_modules
 docs/
 .env
 main.js
+
+/src/**/*.js
