@@ -5,7 +5,7 @@
   "main": "main.ts",
   "scripts": {
     "postinstall": "node -e \"require('fs').cpSync('.env.template', '.env');\"",
-    "prestart": "tsc src/main.ts",
+    "prestart": "tsc",
     "start": "node --env-file=.env src/main.js",
     "test": "jest"
   },
