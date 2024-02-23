@@ -11,6 +11,9 @@ const useGuidDocNames = JSON.parse(process.env['USE_GUID_DOC_NAMES']) as boolean
 const docPrefix = process.env['DOC_PREFIX'];
 const ext = process.env['DOC_EXTENSION'] || 'txt';
 const isDocker = process.env['DOCKER'] === 'true';
+const bacon = process.env['BACON'] === 'true';
+
+if (bacon) console.log('Bacon mode activated! Results will be less consistent');
 
 let baseFolder = 'docs'
 let folderName = '';
@@ -39,6 +42,14 @@ const loremIpsum = new LoremIpsum({
     wordsPerSentence: { max: words, min: words }
 });
 
+const generateFile = (loremIpsum: LoremIpsum) => {
+    if (bacon) {
+        return require('baconipsum')(words*sentences*paragraphs);
+    }
+
+    return loremIpsum.generateParagraphs(paragraphs);
+};
+
 console.log(`Generating ${ docCount } documents...`);
 for (let i = 0; i < docCount; i++) {
     let fileName: string;
@@ -48,6 +59,6 @@ for (let i = 0; i < docCount; i++) {
         fileName = `${folderPath}/${docPrefix}${i + 1}.${ext}`;
     }
 
-    writeFileSync(fileName, loremIpsum.generateParagraphs(paragraphs));
+    writeFileSync(fileName, generateFile(loremIpsum));
 }
 console.log(`Done!\n${ docCount } documents created in ${ folderName }`);

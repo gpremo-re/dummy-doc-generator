@@ -12,13 +12,14 @@
   "author": "Garret Premo <gpremo@rationalenterprise.com",
   "license": "ISC",
   "dependencies": {
-    "lorem-ipsum": "^2.0.8",
-    "guid-typescript": "^1.0.9"
+    "baconipsum": "0.1.2",
+    "guid-typescript": "^1.0.9",
+    "lorem-ipsum": "^2.0.8"
   },
   "devDependencies": {
     "@types/node": "20.9.0",
+    "copyfiles": "^2.4.1",
     "ts-node": "^10.9.2",
-    "typescript": "~5.3.2",
-    "copyfiles": "^2.4.1"
+    "typescript": "~5.3.2"
   }
 }
