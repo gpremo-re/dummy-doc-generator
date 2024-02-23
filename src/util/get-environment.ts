@@ -7,7 +7,7 @@ export const getEnvironment = () => {
         docPrefix: process.env['DOC_PREFIX'],
         ext: process.env['DOC_EXTENSION'] || 'txt',
         useGuidFolder: process.env['USE_GUID_FOLDER'] === 'true',
-        useGuidDocNames: process.env['USE_GUID_DOC_NAMES'],
+        useGuidDocNames: process.env['USE_GUID_DOC_NAMES'] === 'true',
         isDocker: process.env['DOCKER'] === 'true',
     }
 };

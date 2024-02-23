@@ -3,7 +3,7 @@ import { Guid } from "guid-typescript";
 import { generate } from './generate';
 import { getEnvironment } from './util/get-environment';
 
-export const main = (baseFolder = 'docs') => {
+export const main = async (baseFolder = 'docs') => {
     const env = getEnvironment();
 
     let folderName = '';
@@ -28,7 +28,7 @@ export const main = (baseFolder = 'docs') => {
     mkdirSync(folderPath);
 
     console.log(`Generating ${ env.docCount } ${ env.ext } documents...`);
-    generate(folderPath, env.ext);
+    await generate(folderPath, env.ext);
     console.log(`Done!\n${ env.docCount } documents created in ${ folderName }`);
 };
 

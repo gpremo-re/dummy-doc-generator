@@ -14,7 +14,8 @@
   "dependencies": {
     "baconipsum": "0.1.2",
     "guid-typescript": "^1.0.9",
-    "lorem-ipsum": "^2.0.8"
+    "lorem-ipsum": "^2.0.8",
+    "pdfkit": "^0.14.0"
   },
   "devDependencies": {
     "@tsconfig/node-lts": "^20.1.1",

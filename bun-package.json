@@ -4,7 +4,8 @@
   "dependencies": {
     "lorem-ipsum": "^2.0.8",
     "guid-typescript": "^1.0.9",
-    "baconipsum": "0.1.2"
+    "baconipsum": "0.1.2",
+    "pdfkit": "^0.14.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
