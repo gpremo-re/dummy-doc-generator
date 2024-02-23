@@ -12,23 +12,27 @@ const docPrefix = process.env['DOC_PREFIX'];
 const ext = process.env['DOC_EXTENSION'] || 'txt';
 const isDocker = process.env['DOCKER'] === 'true';
 
-let folderName = 'docs';
+let baseFolder = 'docs'
+let folderName = '';
+let folderPath = '';
 
-if (!isDocker && !existsSync(folderName)) {
-    mkdirSync(folderName);
+if (!isDocker && !existsSync(baseFolder)) {
+    mkdirSync(baseFolder);
 }
 
 if (useGuidFolder) {
-    folderName += `/${Guid.create().toString()}`;
+    folderName = `${Guid.create().toString()}`;
+    folderPath = `${baseFolder}/${folderPath}`;
 } else {
-    folderName += '/generated';
-    if (existsSync(folderName)) {
+    folderName = 'generated';
+    folderPath = `${baseFolder}/${folderPath}`;
+    if (existsSync(folderPath)) {
         // @ts-ignore
-        rmdirSync(folderName, { recursive: true, force: true });
+        rmdirSync(folderPath, { recursive: true, force: true });
     }
 }
 
-mkdirSync(folderName);
+mkdirSync(folderPath);
 
 const loremIpsum = new LoremIpsum({
     sentencesPerParagraph: { max: sentences, min: sentences },
@@ -39,9 +43,9 @@ console.log(`Generating ${ docCount } documents...`);
 for (let i = 0; i < docCount; i++) {
     let fileName: string;
     if (useGuidDocNames) {
-        fileName = `${folderName}/${docPrefix}${Guid.create().toString()}.${ext}`;
+        fileName = `${folderPath}/${docPrefix}${Guid.create().toString()}.${ext}`;
     } else {
-        fileName = `${folderName}/${docPrefix}${i + 1}.${ext}`;
+        fileName = `${folderPath}/${docPrefix}${i + 1}.${ext}`;
     }
 
     writeFileSync(fileName, loremIpsum.generateParagraphs(paragraphs));
