@@ -1,0 +1,8 @@
+{
+  "name": "dummy-doc-generator",
+  "version": "1.0.0",
+  "dependencies": {
+    "lorem-ipsum": "^2.0.8",
+    "guid-typescript": "^1.0.9"
+  }
+}
